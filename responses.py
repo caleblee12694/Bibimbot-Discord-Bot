@@ -12,4 +12,4 @@ def get_response(user_input: str) -> str:
     elif 'roll dice' in lowered:
         return f'You rolled: {randint(1, 6)}'
     else:
-        return ""
+        return "I couldn't understand."
