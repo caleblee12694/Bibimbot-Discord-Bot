@@ -7,7 +7,9 @@ def get_response(user_input: str) -> str:
         return 'SAY SOMETHING.'
     elif 'hello' in lowered:
         return 'haiii >.<'
+    elif 'cringe' in lowered:
+        return 'CRINGE CRINGE CRINGE\nCRINGE CRINGE CRINGE\nCRINGE CRINGE CRINGE'
+    elif 'roll dice' in lowered:
+        return f'You rolled: {randint(1, 6)}'
     else:
-        return choice(['wat...?',
-                       'I dunno wym',
-                       'ok...'])
+        return ""
