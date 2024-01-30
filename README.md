@@ -1,8 +1,8 @@
 # Bibimbot-Discord-Bot
 ## BIBIMBOT - made by Caleb &amp; Cynthia
 
-<p align="left">
-<img src ="./bibimbot-nobg.png" width=500/>
+<p align="center">
+<img src ="./bibimbot-nobg.png" width=300/>
 </p>
 
 ### Bibimbop is a Discord bot made just for fun!
