@@ -1,7 +1,7 @@
 # Bibimbot
 
 <p align="center">
-<img src ="./bibimbot-nobg.png" width=300/>
+<img src ="./images/bibimbot-nobg.png" width=300/>
 </p>
 
 ### Bibimbop is a bot that has 0 useful functionality as of now.
