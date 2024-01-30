@@ -1,5 +1,4 @@
 # Bibimbot-Discord-Bot
-## BIBIMBOT - made by Caleb &amp; Cynthia
 
 <p align="center">
 <img src ="./bibimbot-nobg.png" width=300/>
