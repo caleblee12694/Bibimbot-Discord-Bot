@@ -4,7 +4,7 @@ import json
 # API endpoint
 url = "https://api.kanye.rest/"
 
-def kanye():
+def kanyequote():
     # GET request to endpoint
     response = requests.get(url)
 

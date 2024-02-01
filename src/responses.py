@@ -1,7 +1,7 @@
 from random import choice, randint
-from kanye import kanye
+from kanye import kanyequote
 
-def get_response(user_input: str) -> str:
+def get_response(user_input: str):
     lowered: str = user_input.lower()
 
     if lowered == '':
@@ -13,6 +13,6 @@ def get_response(user_input: str) -> str:
     elif 'roll dice' in lowered:
         return f'You rolled: {randint(1, 6)}'
     elif lowered == 'kanye':
-        return kanye()
+        return kanyequote()
     else:
         return "I couldn't understand."

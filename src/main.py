@@ -1,54 +1,35 @@
-from typing import Final
-import os
-from dotenv import load_dotenv
-from discord import Intents, Client, Message
-from responses import get_response
+import settings
+import discord
+from discord.ext import commands
+from kanye import kanyequote
 
-# Loading Token
-load_dotenv()
-TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
+logger = settings.logging.getLogger("bot")
 
-# Bot Setup
-intents: Intents = Intents.default()
-intents.message_content = True
-client: Client = Client(intents=intents)
+def run():
+    intents = discord.Intents.default()
+    intents.message_content = True
 
-# Message functionality
-async def send_message(message: Message, user_message: str) -> None:
-    if not user_message:
-        print('(Message was empty because intents were not enabled)')
-        return
+    bot = commands.Bot(command_prefix="!b ", intents=intents)
+
+    @bot.event
+    async def on_ready():
+        logger.info(f"User: {bot.user} (ID: {bot.user.id})")
     
-    if is_bibim := user_message[:2] == '!b':
-        user_message = user_message[3:]
+    @bot.command()
+    async def ping(ctx):
+        await ctx.send("pong")
 
-    try:
-        response: str = get_response(user_message)
-        if is_bibim:
-            await message.channel.send(response)
-    except Exception as e:
-        print(e)
+    @bot.command()
+    async def huh(ctx):
+        url = 'https://tenor.com/bL6rT.gif'
+        await ctx.send(url)
 
-# Startup Handling
-@client.event
-async def on_read() -> None:
-    print(f'{client.user} is not running!')
+    @bot.command()
+    async def kanye(ctx):
+        quote = kanyequote()
+        await ctx.send(quote)
 
-# Incoming Messages Handling
-@client.event
-async def on_message(message: Message) -> None:
-    if message.author == client.user:
-        return
-    
-    username: str = str(message.author)
-    user_message: str = message.content
-    channel: str = str(message.channel)
+    bot.run(settings.DISCORD_API_SECRET, root_logger=True)
 
-    print(f'[{channel}] {username}: "{user_message}')
-    await send_message(message, user_message)
-
-def main() -> None:
-    client.run(token=TOKEN)
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    run()
