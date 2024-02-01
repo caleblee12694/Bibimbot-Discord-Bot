@@ -3,8 +3,15 @@ import discord
 from discord.ext import commands
 from kanye import kanyequote
 
+# Logging setup (non-functional as of now)
 logger = settings.logging.getLogger("bot")
 
+
+# Run function that sets up the bot and hosts all the commands.
+#
+# This function is continously listening for events as long as the
+# bot is active, so don't try to run anything in main after it,
+# because it won't work.
 def run():
     intents = discord.Intents.default()
     intents.message_content = True
@@ -31,5 +38,6 @@ def run():
 
     bot.run(settings.DISCORD_API_SECRET, root_logger=True)
 
+# Main function
 if __name__ == "__main__":
     run()
