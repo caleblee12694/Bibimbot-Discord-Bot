@@ -32,7 +32,7 @@ LOGGING_CONFIG = {
         "file": {
             'level': "INFO",
             'class': "logging.FileHandler",
-            'filename': "logs/infos.log",
+            'filename': "../logs/infos.log",
             'mode': "w",
             'formatter': "verbose"
         },
@@ -50,3 +50,5 @@ LOGGING_CONFIG = {
         },
     }
 }
+
+dictConfig(LOGGING_CONFIG)
