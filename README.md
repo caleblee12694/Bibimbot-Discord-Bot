@@ -8,6 +8,7 @@
 ### Bibimbop currently does not have useful functions. However, feel free to enjoy these useless commands:
 
 <b>Current Commands:</b>
-* !b hello
 * !b kanye
-* !b roll dice
+* !b smack [victim]
+* !b flail [victim]
+* !b destroy [victim]
