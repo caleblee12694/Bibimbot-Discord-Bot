@@ -61,7 +61,7 @@ def run():
         embed = discord.Embed(
             color=discord.Colour.dark_purple(),
             description=f'{str(ctx.message.author.display_name) + " ended " + who + "!"}',
-            title=f'{"Goodbye " + who + ". 👋"}'
+            title=f'{"🪦 Goodbye " + who + " 🪦"}'
         )
         embed.set_image(url="https://media1.tenor.com/m/78926NmBQEwAAAAC/blue-fighting.gif")
         await ctx.send(embed=embed)
