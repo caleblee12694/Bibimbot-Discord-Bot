@@ -1,10 +1,10 @@
-import settings
+#import settings
 import discord
 from discord.ext import commands
 from commands import kanyequote, huhgif
 
 # Logging setup (non-functional as of now)
-logger = settings.logging.getLogger("bot")
+#logger = settings.logging.getLogger("bot")
 
 
 # Run function that sets up the bot and hosts all the commands.
