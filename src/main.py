@@ -1,4 +1,4 @@
-#import settings
+import settings
 import discord
 from discord.ext import commands
 from commands import kanyequote, huhgif
