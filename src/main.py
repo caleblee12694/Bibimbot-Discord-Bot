@@ -69,9 +69,6 @@ def run():
         embed.set_image(url="https://media1.tenor.com/m/78926NmBQEwAAAAC/blue-fighting.gif")
         await ctx.send(embed=embed)
 
-    bot.run(settings.DISCORD_API_SECRET, root_logger=True)
-
-
     @bot.command()
     async def steal(ctx, args):
         if not args:
@@ -100,6 +97,8 @@ def run():
         
         if made_emojis:
             await ctx.send('Addded emojis: ' + ' '.join(made_emojis))
+
+    bot.run(settings.DISCORD_API_SECRET, root_logger=True)
 
 
 
