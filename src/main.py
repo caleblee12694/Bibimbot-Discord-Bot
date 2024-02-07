@@ -3,7 +3,8 @@
 import settings
 import discord
 from discord.ext import commands
-from commands import kanyequote, huhgif
+from commands import kanyequote, huhgif, parse_emoji
+import requests
 
 # Logging setup (non-functional as of now)
 logger = settings.logging.getLogger("bot")
@@ -69,6 +70,38 @@ def run():
         await ctx.send(embed=embed)
 
     bot.run(settings.DISCORD_API_SECRET, root_logger=True)
+
+
+    @bot.command()
+    async def steal(ctx, args):
+        if not args:
+            await ctx.send("Put some emojis to yoink.")
+            return
+        
+        made_emojis = []
+        for raw_emoji in args:
+            emoji, error = parse_emoji(raw_emoji)
+            if error:
+                await ctx.send(error)
+                continue
+            
+            try:
+                response = requests.get(emoji['url'])
+                created_emoji = await ctx.guild.create_custom_emoji(name=emoji['name'], image=response.content)
+                made_emojis.append(f"<{'a' if emoji['is_animated'] else ''}:{created_emoji.name}:{created_emoji.id}>")
+                await ctx.send(f"Yoinked: `{emoji['url']}`!")
+            except Exception as e:
+                if 'Maximum number of emojis reached (50)' in str(e):
+                    await ctx.send('Maximum number of emojis reached! (50)')
+                    break
+                else:
+                    await ctx.send('An error occurred whilst adding the emojis!')
+                    print(e)
+        
+        if made_emojis:
+            await ctx.send('Addded emojis: ' + ' '.join(made_emojis))
+
+
 
 # Main function
 if __name__ == "__main__":
