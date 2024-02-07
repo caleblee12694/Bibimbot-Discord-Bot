@@ -12,3 +12,10 @@
 * !b smack [victim]
 * !b flail [victim]
 * !b destroy [victim]
+
+
+<b>Coming Soon:</b>
+* !b steal [emoji(s)]
+* !b steal [url]
+# !b play [url]
+# !b play [song name / search]
